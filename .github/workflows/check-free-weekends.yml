@@ -2,7 +2,7 @@ name: Check Steam Free Weekends
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Runs every Sunday at midnight
+    - cron: "0 0/12 * * *" # Runs every 12 hours.
 
 jobs:
   check_free_weekends:
