@@ -39,3 +39,11 @@ jobs:
       if: github.ref == 'refs/heads/main'  # Only push changes if the trigger is on the main branch
       run: |
         git push origin HEAD:main --force
+
+    - name: Clear commit
+      run: |
+        git checkout --orphan tmp
+        git commit -m "$(date)"
+        git branch -D main
+        git branch -m tmp main
+        git push --set-upstream origin main -f
